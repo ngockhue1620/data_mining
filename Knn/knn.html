@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Cô mở console log lên để xem kết quả</h1>
+	<script type="text/javascript">
+
+
+training=[
+{x:0.5,lable:0},
+{x:3  ,lable:0},
+{x:4.5,lable:1},
+{x:4.6,lable:1},
+{x:4.9,lable:1},
+{x:5.2,lable:0},
+{x:5.3,lable:0},
+{x:5.5,lable:1},
+{x:7 ,lable:0},
+{x:9.5 ,lable:0}, 
+
+]
+
+var point =5;
+var distan=[];
+training.forEach(item=>{
+	let vl=point-item.x
+
+	if(vl>0)
+	{
+		distan.push({d:vl,lable:item.lable});
+	}
+	else
+	{
+		distan.push({d:-vl,lable:item.lable});
+	}
+
+});
+
+
+
+distan.sort(function (a, b) {
+	  return a.d - b.d;
+	});
+console.log(
+	distan
+);
+
+var k=5;
+var cong=0;
+var tru=0;
+
+for (const item in distan) {
+
+ 	if(distan[item].lable===0)
+	{
+		tru++;
+	}
+	else
+	{
+		cong++;
+	}
+	k--;
+	console.log(k)
+	if(k==0)
+	{
+		break;
+	}
+
+}
+console.log(cong,tru)
+
+
+if(cong>tru)
+{
+	console.log("+")
+}
+else
+{
+	console.log("-")
+}
+
+
+
+
+	</script>
+
+</body>
+</html>
